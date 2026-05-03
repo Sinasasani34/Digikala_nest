@@ -29,8 +29,8 @@ export class CreateProductDto {
   @ApiPropertyOptional()
   discount: number;
 
-  @ApiPropertyOptional()
-  active_discount: number;
+  @ApiPropertyOptional({ type: "boolean" })
+  active_discount: boolean;
 }
 
 export class UpdateProductDto extends PartialType(CreateProductDto) {}

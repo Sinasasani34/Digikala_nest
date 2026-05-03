@@ -1,1 +1,27 @@
+import { ApiProperty, ApiPropertyOptional, PartialType } from "@nestjs/swagger";
+import { IsNotEmpty, Length } from "class-validator";
+import { ProductType } from "../enum/type.enum";
 
+export class AddSizeDto {
+  @ApiProperty()
+  @IsNotEmpty()
+  @Length(3, 10)
+  size: string;
+
+  @ApiProperty()
+  productId: number;
+
+  @ApiPropertyOptional()
+  price: number;
+
+  @ApiPropertyOptional()
+  count: number;
+
+  @ApiPropertyOptional()
+  discount: number;
+
+  @ApiPropertyOptional({type: "boolean"})
+  active_discount: boolean;
+}
+
+export class UpdateSizeDto extends PartialType(AddSizeDto) {}

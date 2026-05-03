@@ -9,7 +9,7 @@ import {
   Put,
 } from "@nestjs/common";
 import { ApiConsumes, ApiTags } from "@nestjs/swagger";
-import { CreateProductDto, UpdateProductDto } from "../dto/product.dto";
+import { AddDetailDto, UpdateDetailDto } from "../dto/detail.dto";
 
 @Controller("product-detail")
 @ApiTags("Product-Detail")
@@ -18,7 +18,7 @@ export class ProductDetailController {
 
   @Post()
   @ApiConsumes("application/x-www-from-urlencoded")
-  create(@Body() productDto: CreateProductDto) {}
+  create(@Body() detailDto: AddDetailDto) {}
 
   @Get()
   find() {}
@@ -27,7 +27,7 @@ export class ProductDetailController {
   @ApiConsumes("application/x-www-from-urlencoded")
   update(
     @Param("id", ParseIntPipe) id: number,
-    @Body() productDto: UpdateProductDto,
+    @Body() detailDto: UpdateDetailDto,
   ) {}
 
   @Delete("/:id")
