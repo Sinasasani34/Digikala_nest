@@ -18,20 +18,20 @@ export class ProductSizeController {
   constructor() {}
 
   @Post()
-  @ApiConsumes("application/x-www-from-urlencoded")
+  @ApiConsumes("application/x-www-form-urlencoded")
   create(@Body() sizeDto: AddSizeDto) {}
 
   @Get()
   find() {}
 
   @Put("/:id")
-  @ApiConsumes("application/x-www-from-urlencoded")
+  @ApiConsumes("application/x-www-form-urlencoded")
   update(
     @Param("id", ParseIntPipe) id: number,
     @Body() sizeDto: UpdateSizeDto,
   ) {}
 
   @Delete("/:id")
-  @ApiConsumes("application/x-www-from-urlencoded")
+  @ApiConsumes("application/x-www-form-urlencoded")
   delete(@Param("id", ParseIntPipe) id: number) {}
 }

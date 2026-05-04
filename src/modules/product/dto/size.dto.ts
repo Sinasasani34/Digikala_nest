@@ -20,7 +20,7 @@ export class AddSizeDto {
   @ApiPropertyOptional()
   discount: number;
 
-  @ApiPropertyOptional({type: "boolean"})
+  @ApiPropertyOptional({ type: "boolean" })
   active_discount: boolean;
 }
 

@@ -17,20 +17,20 @@ export class ProductDetailController {
   constructor() {}
 
   @Post()
-  @ApiConsumes("application/x-www-from-urlencoded")
+  @ApiConsumes("application/x-www-form-urlencoded")
   create(@Body() detailDto: AddDetailDto) {}
 
   @Get()
   find() {}
 
   @Put("/:id")
-  @ApiConsumes("application/x-www-from-urlencoded")
+  @ApiConsumes("application/x-www-form-urlencoded")
   update(
     @Param("id", ParseIntPipe) id: number,
     @Body() detailDto: UpdateDetailDto,
   ) {}
 
   @Delete("/:id")
-  @ApiConsumes("application/x-www-from-urlencoded")
+  @ApiConsumes("application/x-www-form-urlencoded")
   delete(@Param("id", ParseIntPipe) id: number) {}
 }

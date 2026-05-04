@@ -10,27 +10,39 @@ import {
 } from "@nestjs/common";
 import { ApiConsumes, ApiTags } from "@nestjs/swagger";
 import { CreateProductDto, UpdateProductDto } from "../dto/product.dto";
+import { ProductService } from "../services/product.service";
 
 @Controller("product")
 @ApiTags("Product")
 export class ProductController {
-  constructor() {}
+  constructor(private productService: ProductService) {}
 
   @Post()
-  @ApiConsumes("application/x-www-from-urlencoded")
-  create(@Body() productDto: CreateProductDto) {}
+  @ApiConsumes("application/x-www-form-urlencoded")
+  create(@Body() productDto: CreateProductDto) {
+    return this.create(productDto);
+  }
 
   @Get()
-  find(@Body() productDto: CreateProductDto) {}
+  find() {
+    return this.productService.find();
+  }
+  @Get("/:id")
+  findOne(@Param("id", ParseIntPipe) id: number) {
+    return this.productService.findOnde(id);
+  }
 
   @Put("/:id")
-  @ApiConsumes("application/x-www-from-urlencoded")
+  @ApiConsumes("application/x-www-form-urlencoded")
   update(
     @Param("id", ParseIntPipe) id: number,
     @Body() productDto: UpdateProductDto,
-  ) {}
+  ) {
+    return this.productService.update(id, productDto);
+  }
 
   @Delete("/:id")
-  @ApiConsumes("application/x-www-from-urlencoded")
-  delete(@Param("id", ParseIntPipe) id: number) {}
+  delete(@Param("id", ParseIntPipe) id: number) {
+    return this.productService.delete(id);
+  }
 }

@@ -1,4 +1,10 @@
-import { Column, CreateDateColumn, Entity, OneToMany, PrimaryGeneratedColumn } from "typeorm";
+import {
+  Column,
+  CreateDateColumn,
+  Entity,
+  OneToMany,
+  PrimaryGeneratedColumn,
+} from "typeorm";
 import { ProductDetail } from "./product-detail.entity";
 import { ProductSize } from "./product-size.entity";
 import { ProductColor } from "./product-color.entity";
@@ -21,7 +27,7 @@ export class Product {
   @Column()
   code: string;
 
-  @Column({ enum: ProductType })
+  @Column({ type: "enum", enum: ProductType })
   type: string;
 
   @Column({ default: 0 })
@@ -41,8 +47,10 @@ export class Product {
 
   @OneToMany(() => ProductDetail, (detail) => detail.product)
   details: ProductDetail[];
-  @OneToMany(() => ProductSize, (size) => size.product)
-  sizes: ProductSize[];
+
   @OneToMany(() => ProductColor, (color) => color.product)
   colors: ProductColor[];
+
+  @OneToMany(() => ProductSize, (size) => size.product)
+  sizes: ProductSize[];
 }
