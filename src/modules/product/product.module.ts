@@ -9,6 +9,9 @@ import { ProductSizeController } from "./controllers/prodcut.size.controller";
 import { ProductColorController } from "./controllers/product.color.controller";
 import { ProductDetailController } from "./controllers/product.detail.controller";
 import { ProductService } from "./services/product.service";
+import { CategoryEntity } from "../category/entities/category.entity";
+import { CategoryService } from "../category/category.service";
+import { ProductCategoryEntity } from "./entities/product-category.entity";
 
 @Module({
   imports: [
@@ -17,6 +20,8 @@ import { ProductService } from "./services/product.service";
       ProductColor,
       ProductSize,
       ProductDetail,
+      CategoryEntity,
+      ProductCategoryEntity
     ]),
   ],
   controllers: [
@@ -25,6 +30,6 @@ import { ProductService } from "./services/product.service";
     ProductColorController,
     ProductDetailController,
   ],
-  providers: [ProductService],
+  providers: [ProductService, CategoryService],
 })
 export class ProductModule {}

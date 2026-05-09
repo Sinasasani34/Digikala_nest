@@ -20,7 +20,7 @@ export class ProductController {
   @Post()
   @ApiConsumes("application/x-www-form-urlencoded")
   create(@Body() productDto: CreateProductDto) {
-    return this.create(productDto);
+    return this.productService.create(productDto);
   }
 
   @Get()

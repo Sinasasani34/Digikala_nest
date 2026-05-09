@@ -2,6 +2,7 @@ import {
   Column,
   CreateDateColumn,
   Entity,
+  ManyToOne,
   OneToMany,
   PrimaryGeneratedColumn,
 } from "typeorm";
@@ -9,6 +10,8 @@ import { ProductDetail } from "./product-detail.entity";
 import { ProductSize } from "./product-size.entity";
 import { ProductColor } from "./product-color.entity";
 import { ProductType } from "../enum/type.enum";
+import { CategoryEntity } from "src/modules/category/entities/category.entity";
+import { ProductCategoryEntity } from "./product-category.entity";
 
 @Entity("product")
 export class Product {
@@ -53,4 +56,12 @@ export class Product {
 
   @OneToMany(() => ProductSize, (size) => size.product)
   sizes: ProductSize[];
+
+  @ManyToOne(() => CategoryEntity, (category) => category.product_category, {
+    onDelete: "CASCADE",
+  })
+  category: CategoryEntity;
+
+  @OneToMany(()=>ProductCategoryEntity, category => category.product)
+  categories: ProductCategoryEntity[];
 }

@@ -4,8 +4,6 @@ import { ProductType } from "../enum/type.enum";
 
 export class AddSizeDto {
   @ApiProperty()
-  @IsNotEmpty()
-  @Length(3, 10)
   size: string;
 
   @ApiProperty()

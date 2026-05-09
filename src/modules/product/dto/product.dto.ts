@@ -31,6 +31,9 @@ export class CreateProductDto {
 
   @ApiPropertyOptional({ type: "boolean" })
   active_discount: boolean;
+
+  @ApiPropertyOptional({ type: "string", isArray: true, nullable: true })
+  categories: string[] | string;
 }
 
 export class UpdateProductDto extends PartialType(CreateProductDto) {}
