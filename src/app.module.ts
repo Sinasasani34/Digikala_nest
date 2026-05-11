@@ -3,9 +3,15 @@ import { TypeOrmModule } from "@nestjs/typeorm";
 import { ProductModule } from "./modules/product/product.module";
 import { TypeOrmConfig } from "./config/typeorm.config";
 import { CategoryModule } from "./modules/category/category.module";
+import { AuthModule } from "./modules/auth/auth.module";
 
 @Module({
-  imports: [TypeOrmModule.forRoot(TypeOrmConfig()), ProductModule, CategoryModule],
+  imports: [
+    TypeOrmModule.forRoot(TypeOrmConfig()),
+    ProductModule,
+    CategoryModule,
+    AuthModule,
+  ],
   controllers: [],
   providers: [],
 })
