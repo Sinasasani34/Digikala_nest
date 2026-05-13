@@ -70,8 +70,8 @@ export class ProductService {
       }
       await this.productCategoryRepository.insert({
         productId: productObject.id,
-        categoryId: category.id
-      })
+        categoryId: category.id,
+      });
     }
     return {
       message: "محصول با موفقیت ایجاد شد",
@@ -113,6 +113,12 @@ export class ProductService {
     return this.productRepository.find({
       where: {},
       relations: { colors: true, sizes: true, details: true },
+      select: {
+        details: {
+          key: true,
+          value: true,
+        },
+      },
     });
   }
 

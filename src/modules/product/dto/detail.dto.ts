@@ -7,10 +7,10 @@ export class AddDetailDto {
   productId: number;
 
   @ApiPropertyOptional()
-  Key: string;
+  key: string;
 
   @ApiPropertyOptional()
-  Value: string;
+  value: string;
 }
 
 export class UpdateDetailDto extends PartialType(AddDetailDto) {}

@@ -12,6 +12,7 @@ import { ProductService } from "./services/product.service";
 import { CategoryEntity } from "../category/entities/category.entity";
 import { CategoryService } from "../category/category.service";
 import { ProductCategoryEntity } from "./entities/product-category.entity";
+import { ProductDetailService } from "./services/product-detail.service";
 
 @Module({
   imports: [
@@ -30,6 +31,6 @@ import { ProductCategoryEntity } from "./entities/product-category.entity";
     ProductColorController,
     ProductDetailController,
   ],
-  providers: [ProductService, CategoryService],
+  providers: [ProductService, CategoryService, ProductDetailService],
 })
 export class ProductModule {}

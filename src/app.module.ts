@@ -8,9 +8,9 @@ import { AuthModule } from "./modules/auth/auth.module";
 @Module({
   imports: [
     TypeOrmModule.forRoot(TypeOrmConfig()),
+    AuthModule,
     ProductModule,
     CategoryModule,
-    AuthModule,
   ],
   controllers: [],
   providers: [],

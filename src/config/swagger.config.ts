@@ -18,6 +18,6 @@ function SwaggerAuthConfig(): SecuritySchemeObject {
     type: "http",
     bearerFormat: "JWT",
     in: "header",
-    scheme: "bearers",
+    scheme: "bearer",
   };
 }

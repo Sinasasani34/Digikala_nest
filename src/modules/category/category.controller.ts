@@ -17,12 +17,14 @@ import { FormType } from "src/common/enum/form-type.enum";
 import { Pagination } from "src/common/decorators/pagination.decorator";
 import { PaginationDto } from "src/common/dto/pagination.dto";
 import { paginationSolver } from "src/common/utils/pagination.util";
+import { UserAuth } from "src/common/decorators/auth.decorator";
 
 @Controller("category")
 @ApiTags("Category")
+@UserAuth()
 export class CategoryController {
   constructor(private readonly categoryService: CategoryService) {}
-
+  
   @Post()
   @ApiConsumes(FormType.UrlEncoded, FormType.JSON)
   create(@Body() createCategoryDto: CreateCategoryDto) {
