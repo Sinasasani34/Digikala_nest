@@ -1,6 +1,5 @@
 import { ApiProperty, ApiPropertyOptional, PartialType } from "@nestjs/swagger";
 import { IsNotEmpty, Length } from "class-validator";
-import { ProductType } from "../enum/type.enum";
 
 export class AddColorDto {
   @ApiProperty()

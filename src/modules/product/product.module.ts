@@ -13,6 +13,8 @@ import { CategoryEntity } from "../category/entities/category.entity";
 import { CategoryService } from "../category/category.service";
 import { ProductCategoryEntity } from "./entities/product-category.entity";
 import { ProductDetailService } from "./services/product-detail.service";
+import { ProductSizeService } from "./services/product-size.service";
+import { ProductColorService } from "./services/product-color.service";
 
 @Module({
   imports: [
@@ -22,7 +24,7 @@ import { ProductDetailService } from "./services/product-detail.service";
       ProductSize,
       ProductDetail,
       CategoryEntity,
-      ProductCategoryEntity
+      ProductCategoryEntity,
     ]),
   ],
   controllers: [
@@ -31,6 +33,20 @@ import { ProductDetailService } from "./services/product-detail.service";
     ProductColorController,
     ProductDetailController,
   ],
-  providers: [ProductService, CategoryService, ProductDetailService],
+  providers: [
+    ProductService,
+    CategoryService,
+    ProductDetailService,
+    ProductSizeService,
+    ProductColorService,
+  ],
+  exports: [
+    ProductService,
+    CategoryService,
+    ProductDetailService,
+    ProductSizeService,
+    ProductColorService,
+    TypeOrmModule
+  ],
 })
 export class ProductModule {}

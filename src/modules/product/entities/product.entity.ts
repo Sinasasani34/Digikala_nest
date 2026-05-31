@@ -12,6 +12,7 @@ import { ProductColor } from "./product-color.entity";
 import { ProductType } from "../enum/type.enum";
 import { CategoryEntity } from "src/modules/category/entities/category.entity";
 import { ProductCategoryEntity } from "./product-category.entity";
+import { BasketEntity } from "src/modules/basket/entity/basket.entity";
 
 @Entity("product")
 export class Product {
@@ -62,6 +63,9 @@ export class Product {
   })
   category: CategoryEntity;
 
-  @OneToMany(()=>ProductCategoryEntity, category => category.product)
+  @OneToMany(() => ProductCategoryEntity, (category) => category.product)
   categories: ProductCategoryEntity[];
+
+  @OneToMany(() => BasketEntity, (basket) => basket.product)
+  baskets: BasketEntity[];
 }
